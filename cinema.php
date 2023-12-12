@@ -84,7 +84,7 @@ if (!isset($_SESSION["idUtente"]))
     ?>
 
     <?php
-    $sql = "Select * from utenti where idUtente = '" . $_SESSION["idUtente"] . "' AND username = '" . $_SESSION["username"] . "'";
+    $sql = "Select isAdmin from utenti where idUtente = '" . $_SESSION["idUtente"] . "' AND username = '" . $_SESSION["username"] . "'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
         if($row = mysqli_fetch_assoc($result)) {
