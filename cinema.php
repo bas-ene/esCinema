@@ -81,9 +81,21 @@ if (!isset($_SESSION["idUtente"]))
         echo "No films found.";
     }
     //close connection
-    mysqli_close($conn);
-
     ?>
+
+    <?php
+    $sql = "Select * from utenti where idUtente = '" . $_SESSION["idUtente"] . "' AND username = '" . $_SESSION["username"] . "'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        if($row = mysqli_fetch_assoc($result)) {
+            if($row["isAdmin"] == "1") {
+                echo "<a href='inserisci.php'>Inserisci un film</a><br>";
+            }
+        }
+    }
+    ?>
+    <a href="logout.php">Logout</a>
+
 </body>
 
 </html>
