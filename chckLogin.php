@@ -1,6 +1,6 @@
 <?php
 // FILEPATH: /c:/xampp/htdocs/BasE/Cinema/chckLogin.php
-
+session_start();
 // Include the connection.php file
 include 'connection.php';
 
@@ -20,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Check if a row is returned
     if ($result->num_rows > 0) {
         // User is present in the utenti table
+        $_SESSION["idUtente"] = $result->fetch_assoc()['idUtente'];
+        $_SESSION["username"] = $username;
         header('Location: cinema.php');
     } else {
         // User is not present in the utenti table

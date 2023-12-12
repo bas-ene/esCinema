@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if (!isset($_SESSION["idUtente"]))
+    header("Location: login.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +15,9 @@
 </head>
 
 <body>
-
+    <?php 
+        echo "Benvenuto " . $_SESSION["username"] . "<br>";
+    ?>
     <form action="" method="get">
         <!--from che prende tutti i generi, li mette in un select, e poi fa una query per prendere i film di quel genere-->
         <select name="genere" id="genere">

@@ -3,18 +3,22 @@ session_start();
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     if (isset($_GET['error'])) {
         echo "Username o password errati.";
-    }
-    else if (isset($_GET['success'])) {
+    } else if (isset($_GET['success'])) {
         echo "Registrazione avvenuta con successo.";
     }
+}
+if (isset($_SESSION['idUtente'])) {
+    header('Location: cinema.php');
 }
 ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Login</title>
 </head>
+
 <body>
     <h1>Login</h1>
     <form method="POST" action="chckLogin.php">
@@ -25,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         <input type="submit" value="Login">
     </form>
     Non sei registrato? <a href="register.php">Registrati</a>
-    
+
 </body>
+
 </html>

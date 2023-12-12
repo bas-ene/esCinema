@@ -1,3 +1,9 @@
+<?php 
+session_start();
+if (!isset($_SESSION["idUtente"]))
+    header("Location: login.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +15,9 @@
 </head>
 
 <body>
+
     <?php
+    echo "<h1>Benvenuto " . $_SESSION["username"] . "</h1>";
     if (isset($_GET["idFilm"])) {
         $idFilm = $_GET["idFilm"];
         include("connection.php");
