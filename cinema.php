@@ -63,7 +63,7 @@
             // 1:06:00 should be 66 minutes
             $duration = explode(":", $row["Durata"]);
             $duration_minutes = $duration[0] * 60 + $duration[1];
-            echo "<p>Durata: " . $duration_minutes . " minutes</p>";
+            echo "<p>Durata: " . $duration_minutes . " minuti</p>";
             echo "</td>";
             echo "</tr>";
             echo "<tr><td colspan='2'>------------------------</td></tr>";
