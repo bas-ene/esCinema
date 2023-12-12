@@ -20,7 +20,7 @@ if ($row["isAdmin"] != "1") {
 </head>
 
 <body>
-    <form action="chckAddFilm.php" method="post">
+    <form enctype="multipart/form-data" action="chckInserisci.php" method="post">
         Titolo: <br>
         <input type="text" name="Titolo" id="">
         <br>
@@ -39,7 +39,7 @@ if ($row["isAdmin"] != "1") {
         Durata (in minuti): <br>
         <input type="text" name="Durata" id="">
         <br>
-        Locandina: <br> 
+        Locandina: <br>
         <input type="file" name="image_path" id="">
         <br>
         <input type="submit" value="Inserisci">
